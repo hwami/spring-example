@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<Configuration>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %5p [%c] %m%n" />
+		</Console>
+
+		<Console name="console-infolog" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %5p %m%n" />
+		</Console>
+	</Appenders>
+
+
+	<Loggers>
+		<Logger name="org.apache.log4j.xml">
+			<level value="info" />
+		</Logger>
+
+		<Logger name="com.hwa.exam" additivity="false">
+			<level value="info" />
+			<appender-ref ref="console" />
+		</Logger>
+
+		<Logger name="jdbc.sqlonly" additivity="false">
+			<level value="info" />
+			<appender-ref ref="console-infolog" />
+		</Logger>
+
+		<Logger name="jdbc.resultsettable" additivity="false">
+			<level value="info" />
+			<appender-ref ref="console" />
+		</Logger>
+
+		<Root level="debug">
+			<appender-ref ref="console" />
+		</Root>
+	</Loggers>
+
+
+</Configuration>
